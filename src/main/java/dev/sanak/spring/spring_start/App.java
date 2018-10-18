@@ -11,5 +11,7 @@ public class App {
 
         ModelT1000 t1000 = context.getBean("t1000", ModelT1000.class);
         t1000.fire();
+
+        System.out.println(t1000);
     }
 }

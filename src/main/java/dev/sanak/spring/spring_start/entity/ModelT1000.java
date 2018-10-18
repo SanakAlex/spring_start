@@ -17,6 +17,16 @@ public class ModelT1000 implements Robot {
     private Leg leg;
     private Hand hand;
 
+    private String color;
+    private int year;
+    private boolean soundEnabled;
+
+    public ModelT1000(String color, int year, boolean soundEnabled) {
+        this.color = color;
+        this.year = year;
+        this.soundEnabled = soundEnabled;
+    }
+
     @Override
     public void fire() {
         head.think();
