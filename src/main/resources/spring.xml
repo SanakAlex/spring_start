@@ -3,5 +3,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="t1000" class="dev.sanak.spring.spring_start.entity.ModelT1000"/>
+    <bean id="t1000" class="dev.sanak.spring.spring_start.entity.ModelT1000">
+        <!--<constructor-arg ref="sonyHead"/>-->
+        <!--<constructor-arg ref="sonyLeg"/>-->
+        <!--<constructor-arg ref="asusHand"/>-->
+        <property name="hand" ref="asusHand"/>
+        <property name="head" ref="sonyHead"/>
+        <property name="leg" ref="asusLeg"/>
+    </bean>
+
+    <bean id="sonyHand" class="dev.sanak.spring.spring_start.implementation.sony.HandImpl"/>
+    <bean id="sonyHead" class="dev.sanak.spring.spring_start.implementation.sony.HeadImpl"/>
+    <bean id="sonyLeg" class="dev.sanak.spring.spring_start.implementation.sony.LegImpl"/>
+
+    <bean id="asusHand" class="dev.sanak.spring.spring_start.implementation.asus.HandImpl"/>
+    <bean id="asusHead" class="dev.sanak.spring.spring_start.implementation.asus.HeadImpl"/>
+    <bean id="asusLeg" class="dev.sanak.spring.spring_start.implementation.asus.LegImpl"/>
 </beans>

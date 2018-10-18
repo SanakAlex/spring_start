@@ -10,6 +10,6 @@ public class App {
         ApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 
         ModelT1000 t1000 = context.getBean("t1000", ModelT1000.class);
-        t1000.dance();
+        t1000.fire();
     }
 }
