@@ -6,7 +6,8 @@
 
     <bean id="t1000" class="dev.sanak.spring.spring_start.entity.ModelT1000" scope="prototype"
           p:hand-ref="asusHand" p:head-ref="sonyHead" p:leg-ref="asusLeg"
-          c:_0="Red" c:_1="2018" c:_2="true">
+          c:_0="Red" c:_1="2018" c:_2="true"
+          depends-on="dbConnection">
         <!--init-method="initMethod" destroy-method="destroyMethod"-->
 
         <!--<constructor-arg ref="sonyHead"/>-->

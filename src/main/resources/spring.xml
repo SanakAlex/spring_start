@@ -4,6 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="true">
 
+    <import resource="db_context.xml"/>
+
     <import resource="sony.xml"/>
     <import resource="asus.xml"/>
     <import resource="t1000.xml"/>
