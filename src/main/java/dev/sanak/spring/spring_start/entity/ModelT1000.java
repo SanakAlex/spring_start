@@ -7,11 +7,13 @@ import dev.sanak.spring.spring_start.interfaces.Robot;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ModelT1000 implements Robot {
+public class ModelT1000 implements Robot, InitializingBean, DisposableBean {
 
     private Head head;
     private Leg leg;
@@ -37,5 +39,21 @@ public class ModelT1000 implements Robot {
     @Override
     public void dance() {
         System.out.println("DANCING!!!1111");
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("Init T1000");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("Destroy T1000");
+
     }
 }

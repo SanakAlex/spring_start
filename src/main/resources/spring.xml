@@ -2,11 +2,35 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-lazy-init="true">
 
-    <bean id="t1000" class="dev.sanak.spring.spring_start.entity.ModelT1000"
+    <bean class="dev.sanak.spring.spring_start.bean.BeanPostProcessorImpl"/>
+
+    <bean id="t1000" class="dev.sanak.spring.spring_start.entity.ModelT1000" scope="prototype"
           p:hand-ref="asusHand" p:head-ref="sonyHead" p:leg-ref="asusLeg"
           c:_0="Red" c:_1="2018" c:_2="true">
+        <!--init-method="initMethod" destroy-method="destroyMethod"-->
+
+        <!--<constructor-arg ref="sonyHead"/>-->
+        <!--<constructor-arg ref="sonyLeg"/>-->
+        <!--<constructor-arg ref="asusHand"/>-->
+
+        <!--<property name="hand" ref="asusHand"/>-->
+        <!--<property name="head" ref="sonyHead"/>-->
+        <!--<property name="leg" ref="asusLeg"/>-->
+
+        <!--<constructor-arg index="0" type="java.lang.String" value="Red"/>-->
+        <!--<constructor-arg index="1" type="int" value="2018"/>-->
+        <!--<constructor-arg index="2" type="boolean" value="true"/>-->
+
+    </bean>
+
+    <bean id="t1000v2" class="dev.sanak.spring.spring_start.entity.ModelT1000" scope="prototype"
+          p:hand-ref="asusHand" p:head-ref="sonyHead" p:leg-ref="asusLeg"
+          c:_0="Red" c:_1="2018" c:_2="true">
+
+        <!--init-method="initMethod" destroy-method="destroyMethod"-->
 
         <!--<constructor-arg ref="sonyHead"/>-->
         <!--<constructor-arg ref="sonyLeg"/>-->
