@@ -4,11 +4,13 @@ import dev.sanak.spring.spring_start.interfaces.Hand;
 import dev.sanak.spring.spring_start.interfaces.Head;
 import dev.sanak.spring.spring_start.interfaces.Leg;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 @Data
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 public class ModelT1000 extends BaseRobot implements InitializingBean, DisposableBean {
 
@@ -30,14 +32,13 @@ public class ModelT1000 extends BaseRobot implements InitializingBean, Disposabl
     }
 
     @Override
-    public void afterPropertiesSet() throws Exception {
+    public void afterPropertiesSet() {
         System.out.println("Init T1000");
     }
 
     @Override
-    public void destroy() throws Exception {
+    public void destroy() {
         System.out.println("Destroy T1000");
-
     }
 
     @Override
