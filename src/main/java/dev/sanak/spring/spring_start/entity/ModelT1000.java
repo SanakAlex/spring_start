@@ -6,10 +6,12 @@ import dev.sanak.spring.spring_start.interfaces.Leg;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 
 @Data
+@ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 public class ModelT1000 extends BaseRobot implements InitializingBean, DisposableBean {

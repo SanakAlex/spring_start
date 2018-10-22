@@ -1,4 +1,4 @@
-package dev.sanak.spring.spring_start.method_replacer;
+package dev.sanak.spring.spring_start.implementation.method_replacer;
 
 import org.springframework.beans.factory.support.MethodReplacer;
 

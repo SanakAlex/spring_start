@@ -4,9 +4,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="true">
 
-    <bean id="t1000Factory" class="dev.sanak.spring.spring_start.factory.RobotT1000Factory">
+    <bean id="t1000Factory" class="dev.sanak.spring.spring_start.implementation.factory.RobotT1000Factory">
         <lookup-method name="createRobot" bean="t1000"/>
     </bean>
+
+    <bean id="baseRobot" class="dev.sanak.spring.spring_start.entity.BaseRobot" abstract="true">
+        <constructor-arg index="0" ref="asusHead"/>
+        <constructor-arg index="1" ref="sonyLeg"/>
+        <constructor-arg index="2" ref="asusHand"/>
+    </bean>
+
+    <bean id="modelT1000ActionReplacer" class="dev.sanak.spring.spring_start.implementation.method_replacer.ModelT1000ActionReplacer"/>
 
     <bean id="t1000" class="dev.sanak.spring.spring_start.entity.ModelT1000" scope="prototype"
           parent="baseRobot" depends-on="dbConnection">
@@ -16,11 +24,31 @@
         <replaced-method name="action" replacer="modelT1000ActionReplacer"/>
     </bean>
 
-    <bean id="modelT1000ActionReplacer" class="dev.sanak.spring.spring_start.method_replacer.ModelT1000ActionReplacer"/>
-
-    <bean id="baseRobot" class="dev.sanak.spring.spring_start.entity.BaseRobot" abstract="true">
-        <constructor-arg index="0" ref="asusHead"/>
-        <constructor-arg index="1" ref="sonyLeg"/>
-        <constructor-arg index="2" ref="asusHand"/>
+    <bean id="t100Pool" class="dev.sanak.spring.spring_start.implementation.pool.T1000Pool">
+        <constructor-arg name="robotMap">
+            <map>
+                <entry key="2018">
+                    <bean class="dev.sanak.spring.spring_start.entity.ModelT1000" parent="baseRobot">
+                        <constructor-arg index="3" value="red" type="java.lang.String"/>
+                        <constructor-arg index="4" value="1996" type="int"/>
+                        <constructor-arg index="5" value="true" type="boolean"/>
+                    </bean>
+                </entry>
+                <entry key="2018" value-ref="t1000"/>
+                <entry key="2005" value-ref="t1000"/>
+                <entry key="2007" value-ref="t1000"/>
+            </map>
+        </constructor-arg>
+        <property name="robotCollection">
+            <!--<null/>-->
+            <list>
+                <ref bean="t1000"/>
+                <bean class="dev.sanak.spring.spring_start.entity.ModelT1000" parent="baseRobot" scope="prototype">
+                    <constructor-arg index="3" value="red" type="java.lang.String"/>
+                    <constructor-arg index="4" value="1996" type="int"/>
+                    <constructor-arg index="5" value="true" type="boolean"/>
+                </bean>
+            </list>
+        </property>
     </bean>
 </beans>
