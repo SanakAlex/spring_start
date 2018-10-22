@@ -52,4 +52,9 @@ public class ModelT1000 extends BaseRobot implements InitializingBean, Disposabl
     public void dance() {
         System.out.println("DANCING!!!1111");
     }
+
+    @Override
+    public void action() {
+        System.out.println("Action from entity");
+    }
 }

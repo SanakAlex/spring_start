@@ -4,14 +4,19 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="true">
 
+    <bean id="t1000Factory" class="dev.sanak.spring.spring_start.factory.RobotT1000Factory">
+        <lookup-method name="createRobot" bean="t1000"/>
+    </bean>
+
     <bean id="t1000" class="dev.sanak.spring.spring_start.entity.ModelT1000" scope="prototype"
           parent="baseRobot" depends-on="dbConnection">
-
         <constructor-arg index="3" value="Red"/>
         <constructor-arg index="4" value="2018"/>
         <constructor-arg index="5" value="true"/>
-
+        <replaced-method name="action" replacer="modelT1000ActionReplacer"/>
     </bean>
+
+    <bean id="modelT1000ActionReplacer" class="dev.sanak.spring.spring_start.method_replacer.ModelT1000ActionReplacer"/>
 
     <bean id="baseRobot" class="dev.sanak.spring.spring_start.entity.BaseRobot" abstract="true">
         <constructor-arg index="0" ref="asusHead"/>

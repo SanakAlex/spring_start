@@ -7,13 +7,13 @@ public class BeanPostProcessorImpl implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object o, String s) throws BeansException {
         System.out.println("Bean post proc before init for: " + s);
+        System.out.println(o);
         return o;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object o, String s) throws BeansException {
-        System.out.println("Bean post proc after init for: " + s);
-
+        System.out.println("\n");
         return o;
     }
 }
